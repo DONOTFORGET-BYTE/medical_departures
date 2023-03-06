@@ -1,18 +1,19 @@
 import express from "express";
 import { _default } from "../config/default";
-import connect from "./db/connect";
+// import connect from "./db/connect";
 import routes from "./routes";
 
-//import schema/models
-import createUsersTable from "./model/user.model";
-// import createUsersProfileTable from "./model/user_profile,model";
-// import createBlogTable from "./model/blog.model";
+//import models
+import { createUsersTable, createUsersProfileTable } from "./model/user.model";
+import createBlogTable from "./model/blog.model";
+import deserializeUser from "./middleware/deserializeUser";
 
 let _default_settings = new _default();
 const port = _default_settings.port;
 const host = _default_settings.host;
 
 const app = express();
+app.use(deserializeUser);
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -20,12 +21,12 @@ app.use(express.urlencoded({extended: false}));
 app.listen(port, host, () => {
   console.log(`Server listening at http://${host}:${port}`);
   // create connection
-  connect();
+  // connect();
 
   //create tables
   createUsersTable();
-  // createUsersProfileTable();
-  // createBlogTable();
+  createUsersProfileTable();
+  createBlogTable();
 
   routes(app);
 });
