@@ -4,24 +4,17 @@ backend development test for medical departures
 #INSTRUCTIONS ON HOW TO RUN LOCALLY
 
 ##PREREQUISITES
-Node js version: 16.14.0
-XAMPP Control Panel: Any version to connect to Database
+:Node js version: 16.14.0
 
 :download the project to local machine
 
-:open project directory in CMD (on windows)
+:open project directory in CMD
 
 :make sure you're in the same directory with the package.json file
 
 :type "npm install" (install project dependencies)
 
 :type "npm install nodemon -g"  (make sure its installed globally on machine)
-
-:open project with any file explorer
- 
-:navigate to config/default.ts
-
-:define your database connection credentials and save
 
 :return to CMD and type "npm run dev"
 
