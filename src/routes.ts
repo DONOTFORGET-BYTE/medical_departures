@@ -28,7 +28,7 @@ export default function (app: Express){
 
     // update user profile
     app.put(
-        "/api/user_profile/:userId",
+        "/api/user_profile/update/:userId",
         [isLoggedIn, validate(updateUserProfileSchema)],
         updateUserProfileHandler
     );
@@ -41,21 +41,21 @@ export default function (app: Express){
     );
 
     // get blogs
-    app.get("/api/blogs", getBlogsHandler);
+    app.get("/api/blogs", isLoggedIn,getBlogsHandler);
 
     // get blog
     app.get("/api/blog/:blogId", getBlogHandler);
 
     // update blog
     app.put(
-        "/api/blog/:blogId",
+        "/api/blog/update/:blogId",
         [isLoggedIn, validate(updateBlogSchema)],
         updateBlogHandler
     );
 
     // delete blog
     app.delete(
-        "/api/blog/:blogId",
+        "/api/blog/delete/:blogId",
         [isLoggedIn, validate(deleteBlogSchema)],
         deleteBlogHandler
     );
