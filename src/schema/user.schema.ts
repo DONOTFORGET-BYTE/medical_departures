@@ -34,3 +34,15 @@ export const createUserSessionSchema = object({
           .required("Email is required"),
         })
 });
+
+
+// for updating userProfile
+export const updateUserProfileSchema = object({
+  body: object({
+    name:string().required("name is required"),
+    surname: string().required("surname is required"),
+    phone: string()
+      .required("phone is required")
+      .min(10, "phone number should be 10 digits minimum")
+  }),
+});
