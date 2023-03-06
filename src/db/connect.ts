@@ -1,7 +1,8 @@
 import { _default } from "../../config/default";
 
 let _default_settings = new _default();
-const host = _default_settings.host;
+const host = _default_settings.dbUri;
+const port = _default_settings.dbport;
 const user = _default_settings.user;
 const password = _default_settings.password;
 const dbname = _default_settings.database;
@@ -13,7 +14,8 @@ function connect(){
       host: host, // Replace with your host name
       user: user,      // Replace with your database username
       password: password,      // Replace with your database password
-      database: dbname // // Replace with your database Name
+      database: dbname, // // Replace with your database Name
+      port: port
     }); 
      
     conn.connect(function(err: any) {
