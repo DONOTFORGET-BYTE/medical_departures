@@ -1,8 +1,8 @@
-service: medical-departures-app
+service: my-serverless-app
 
 provider:
  name: aws
- runtime: nodejs14.17.3
+ runtime: nodejs14.x
  memorySize: 128
  timeout: 10
  stage: production
@@ -12,7 +12,6 @@ functions:
  api:
    handler: lambda.universal
    events:
-     - http: ANY {proxy+}
      - http: ANY /
 
 
