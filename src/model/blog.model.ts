@@ -7,7 +7,7 @@ function createBlogTable(){
 
     conn.query(sql, function (err: any, result: any) {
         if (err) throw err;
-        console.log("blog table created"); //testing purposes
+        // console.log("blog table created"); //testing purposes
     });
 
 }
