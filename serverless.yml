@@ -1,4 +1,4 @@
-service: my-serverless-app
+service: medical-departures-app
 
 provider:
  name: aws
@@ -6,7 +6,7 @@ provider:
  memorySize: 128
  timeout: 10
  stage: production
- region: eu-central-1
+ region: us-east-2
 
 functions:
  api:
